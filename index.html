@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>プライバシーポリシー｜ねこ玉だんご</title>
+<meta name="description" content="ゲーム「ねこ玉だんご」のプライバシーポリシー。記録は端末の中に保存し、独自のサーバーは持ちません。">
+<style>
+  /* 配色はアプリ本体（lib/game/palette.dart）のさくら色に合わせている。
+     フォントは端末に入っているものだけを使い、外部から何も読み込まない
+     （ページを開いただけで第三者へ通信が飛ばないようにするため）。 */
+  :root {
+    --page: #fbd0e0;
+    --paper: #fffaf6;
+    --ink: #4a3b45;
+    --ink-soft: #7e6776;
+    --accent: #c9557f;
+    --line: #e6d3de;
+    --faint: #fdf1f6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --page: #2a1f26;
+      --paper: #362a32;
+      --ink: #f6e9f0;
+      --ink-soft: #c9b3c1;
+      --accent: #f59cbd;
+      --line: #56434f;
+      --faint: #402f3a;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0 20px 48px;
+    background: var(--page);
+    color: var(--ink);
+    font-family: "Hiragino Maru Gothic ProN", "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+                 "Noto Sans JP", "Yu Gothic Medium", "Yu Gothic", Meiryo, system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.9;
+    -webkit-text-size-adjust: 100%;
+  }
+  .sheet {
+    max-width: 720px;
+    margin: 40px auto 0;
+    background: var(--paper);
+    border-radius: 26px;
+    padding: 40px 32px 44px;
+    box-shadow: 0 3px 0 rgba(74, 59, 69, .1), 0 18px 34px rgba(74, 59, 69, .18);
+  }
+  header { border-bottom: 2px solid var(--line); padding-bottom: 20px; }
+  .app { font-size: 14px; letter-spacing: .2em; color: var(--ink-soft); margin: 0 0 6px; font-weight: 700; }
+  h1 { font-size: 26px; line-height: 1.5; margin: 0 0 12px; font-weight: 800; }
+  .dates { font-size: 13px; color: var(--ink-soft); margin: 0; }
+  h2 {
+    font-size: 18px;
+    margin: 40px 0 12px;
+    padding-left: 12px;
+    border-left: 5px solid var(--accent);
+    line-height: 1.6;
+  }
+  p { margin: 0 0 14px; }
+  ul { margin: 0 0 14px; padding-left: 1.4em; }
+  li { margin-bottom: 6px; }
+  a { color: var(--accent); }
+  .lead, .contact {
+    background: var(--faint);
+    border: 1.5px solid var(--line);
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin: 24px 0 8px;
+  }
+  .lead p:last-child, .contact p:last-child { margin-bottom: 0; }
+  .contact .mail { font-size: 18px; font-weight: 700; word-break: break-all; }
+  /* 言語の切りかえタブ（JavaScript が動くときだけ出す） */
+  .tabs {
+    display: flex;
+    gap: 4px;
+    width: fit-content;
+    margin: 0 0 24px;
+    padding: 4px;
+    background: var(--faint);
+    border: 1.5px solid var(--line);
+    border-radius: 999px;
+  }
+  .tabs[hidden], [role="tabpanel"][hidden] { display: none; }
+  .tabs button {
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    background: none;
+    border: 0;
+    border-radius: 999px;
+    padding: 4px 18px;
+    cursor: pointer;
+  }
+  .tabs button[aria-selected="true"] { background: var(--accent); color: var(--paper); }
+  .tabs button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  /* JavaScript が動かないときは 日本語のあとに英語を続けて出すので、その区切り */
+  #lang-en { border-top: 2px dashed var(--line); margin-top: 48px; padding-top: 32px; }
+  .js #lang-en { border-top: 0; margin-top: 0; padding-top: 0; }
+  /* 英語は欧文のシステムフォントで出す */
+  :lang(en) {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, system-ui, sans-serif;
+  }
+  section:lang(en) { line-height: 1.7; }
+  section:lang(en) .app { letter-spacing: .08em; }
+  @media (max-width: 600px) {
+    body { padding: 0 12px 32px; font-size: 15px; }
+    .sheet { padding: 28px 20px 32px; margin-top: 20px; border-radius: 20px; }
+    h1 { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+<main class="sheet">
+<div class="tabs" role="tablist" aria-label="言語 / Language" hidden>
+  <button type="button" role="tab" id="tab-ja" aria-controls="lang-ja" data-lang="ja" lang="ja">日本語</button>
+  <button type="button" role="tab" id="tab-en" aria-controls="lang-en" data-lang="en" lang="en">English</button>
+</div>
+
+<section id="lang-ja" lang="ja" role="tabpanel" aria-labelledby="tab-ja">
+  <header>
+    <p class="app">ねこ玉だんご</p>
+    <h1>プライバシーポリシー</h1>
+    <p class="dates">最終更新日：2026年10月3日</p>
+  </header>
+
+  <div class="lead">
+    <p>ゲーム「ねこ玉だんご」（以下「本アプリ」）は、<strong>独自のサーバーを持たず、利用者の個人情報を集めることも、第三者へ販売・提供することもありません。</strong>遊んだ記録は端末の中に保存します。ランキングを使うときにかぎり、Apple の Game Center へ得点などを送ります。</p>
+  </div>
+
+  <h2>1. 端末の中に保存する情報</h2>
+  <p>ゲームを続けて遊べるようにするため、次の情報を<strong>お使いの端末の中だけ</strong>に保存します（iOS の標準的な保存領域を使います）。いずれも個人を特定できる情報ではなく、外部へ送信することも、作者が見ることもありません。</p>
+  <ul>
+    <li>ベスト（いちばんよい得点）と、そのとき連れていたネコ・なかよしレベル</li>
+    <li>カリカリ（ゲーム内で集めるアイテム）の数</li>
+    <li>ネコずかん（仲間になったネコ・選んでいるネコ）と、ネコごとのなかよし度</li>
+    <li>遊んだ回数、眠らせたネコの数、ごろごろフィーバーになった回数の累計（特別なネコが仲間になる条件の判定に使います）</li>
+    <li>はじめての説明を見たかどうか</li>
+    <li>Game Center へ送り終えた得点の控え（送り直しが必要かを判断するため）</li>
+  </ul>
+  <p>本アプリを端末から削除すると、上記のすべてが消去されます。<strong>消えた記録を元に戻すことはできません。</strong></p>
+
+  <h2>2. Game Center へ送る情報</h2>
+  <p>ランキングには、Apple の <strong>Game Center</strong> を利用します。Game Center にサインインした状態でゲームを遊び終えたとき、またはまだ送れていないベストがあるときに、次の情報が Apple のサーバーへ送られます。</p>
+  <ul>
+    <li><strong>得点</strong></li>
+    <li><strong>その得点を取ったときに連れていたネコの種類と、なかよしレベル</strong>（ランキングにネコの絵を出すための数値）</li>
+  </ul>
+  <p>これらは、Apple が管理する<strong>プレイヤー識別子</strong>に紐づいて記録されます。ランキングに並ぶ名前は <strong>Game Center のニックネーム</strong>で、本アプリは独自のニックネームを持たず、利用者の名前を預かることもありません。ランキング画面を開いたときは、ほかのプレイヤーの順位・ニックネーム・得点を Game Center から読み込んで表示します。<strong>Game Center にサインインしていない場合は、何も送信しません。</strong></p>
+  <p>送信された情報は Apple のプライバシーポリシー（<a href="https://www.apple.com/legal/privacy/ja/">https://www.apple.com/legal/privacy/ja/</a>）に従って取り扱われ、<strong>作者のもとに集まることはありません。</strong>サインアウトや利用の制限は、iOS の「設定」＞「Game Center」および「スクリーンタイム」から行えます。</p>
+
+  <h2>3. 集めない情報</h2>
+  <p>本アプリは次のいずれも取得しません。年齢や生年月日を尋ねることもありません。</p>
+  <ul>
+    <li>氏名、住所、電話番号、メールアドレスなどの連絡先</li>
+    <li>位置情報</li>
+    <li>カメラ、マイク、写真、連絡先、カレンダーなどの端末データ</li>
+    <li>広告の表示、広告識別子（IDFA）を用いたトラッキング、アプリ内課金</li>
+    <li>アクセス解析・行動ログ（アナリティクスや他社のトラッキング SDK を組み込んでいません）</li>
+  </ul>
+  <p>また、作者が運営するサーバーやデータベースを一切持ちません。上記の Game Center との通信を除き、本アプリが外部と通信することはありません（メニューからこのページを開いたときは、端末のブラウザがこのページを読み込みます）。結果画面の「シェアする」は、ネコの団子と得点の画像を iOS の共有メニューに渡すだけで、どこへ送るかは利用者が選びます。本アプリや作者がその内容を受け取ることはありません。アプリのレビューは iOS 標準の画面を使い、書かれた評価は Apple の App Store が扱います。本アプリはオープンソースの部品を利用していますが、いずれも端末内の処理に使うもので、外部へ情報を送るものではありません。</p>
+
+  <h2>4. 子どものプライバシー</h2>
+  <p>本アプリは個人情報を集めないため、年齢を問わず安心してご利用いただけます。</p>
+
+  <h2>5. このポリシーの変更</h2>
+  <p>本ポリシーは、法令の変更や本アプリの機能追加にあわせて改定することがあります。重要な変更があった場合は、このページの最終更新日を改めます。</p>
+
+  <h2>6. お問い合わせ</h2>
+  <p>本アプリおよび本ポリシーに関するお問い合わせは、次のアドレスまでご連絡ください。</p>
+  <div class="contact">
+    <p class="mail"><a href="mailto:dev.az.contact@gmail.com">dev.az.contact@gmail.com</a></p>
+  </div>
+
+  <p style="margin-top:32px"><a href="support.html" data-page="support.html">サポート</a></p>
+</section>
+
+<section id="lang-en" lang="en" role="tabpanel" aria-labelledby="tab-en">
+  <header>
+    <p class="app">Nekotama Dango</p>
+    <h1>Privacy Policy</h1>
+    <p class="dates">Last updated: October 3, 2026</p>
+  </header>
+
+  <div class="lead">
+    <p>The game “Nekotama Dango” (“the App”) <strong>has no servers of its own, does not collect your personal information, and never sells or shares it with third parties.</strong> Your play records are saved on your device. Only when you use the rankings does the App send your score and related data to Apple’s Game Center.</p>
+  </div>
+
+  <h2>1. Information saved on your device</h2>
+  <p>So that you can keep playing, the App saves the following information <strong>only on your device</strong> (using the standard iOS storage area). None of it can identify you personally, and it is never sent anywhere or seen by the developer.</p>
+  <ul>
+    <li>Your best score, and the cat you played with at that time and its friendship level</li>
+    <li>The amount of kibble (an item you collect in the game)</li>
+    <li>Your Cat Book (the cats you have met and the cat you have selected) and the friendship level of each cat</li>
+    <li>Running totals of games played, cats put to sleep, and Purr Fevers reached (used to check the conditions for special cats to join you)</li>
+    <li>Whether you have seen the first-time tips</li>
+    <li>A record of the scores already sent to Game Center (to know whether a score needs to be sent again)</li>
+  </ul>
+  <p>Deleting the App from your device erases all of the above. <strong>Erased records cannot be restored.</strong></p>
+
+  <h2>2. Information sent to Game Center</h2>
+  <p>The rankings use Apple’s <strong>Game Center</strong>. When you finish a game while signed in to Game Center, or when there is a best score that has not been sent yet, the following information is sent to Apple’s servers:</p>
+  <ul>
+    <li><strong>Your score</strong></li>
+    <li><strong>The type of cat you played with when you got that score, and its friendship level</strong> (numbers used to draw the cat in the rankings)</li>
+  </ul>
+  <p>This information is recorded under a <strong>player identifier</strong> managed by Apple. The name shown in the rankings is your <strong>Game Center nickname</strong>; the App has no nicknames of its own and never keeps your name. When you open the rankings, the App loads other players’ ranks, nicknames and scores from Game Center to display them. <strong>If you are not signed in to Game Center, nothing is sent.</strong></p>
+  <p>Information sent to Game Center is handled under Apple’s Privacy Policy (<a href="https://www.apple.com/legal/privacy/">https://www.apple.com/legal/privacy/</a>) and <strong>is never collected by the developer.</strong> You can sign out or restrict Game Center in iOS Settings &gt; Game Center and in Screen Time.</p>
+
+  <h2>3. Information we do not collect</h2>
+  <p>The App does not collect any of the following. It also never asks for your age or date of birth.</p>
+  <ul>
+    <li>Contact details such as your name, address, phone number or email address</li>
+    <li>Location data</li>
+    <li>Device data such as the camera, microphone, photos, contacts or calendar</li>
+    <li>Advertising, tracking with the advertising identifier (IDFA), or in-app purchases</li>
+    <li>Analytics or activity logs (the App contains no analytics or third-party tracking SDKs)</li>
+  </ul>
+  <p>The developer does not run any servers or databases. Apart from the Game Center communication described above, the App does not communicate with anything outside your device (when you open this page from the menu, your device’s browser loads it). The “Share” button on the result screen only hands an image of your cat ball and score to the iOS share sheet; you choose where it goes, and neither the App nor the developer receives it. App reviews use the standard iOS screen, and ratings you write are handled by Apple’s App Store. The App uses open-source components, but they all run on your device and do not send information anywhere.</p>
+
+  <h2>4. Children’s privacy</h2>
+  <p>Because the App does not collect personal information, people of any age can use it with peace of mind.</p>
+
+  <h2>5. Changes to this policy</h2>
+  <p>This policy may be revised to reflect changes in law or new features in the App. If there is an important change, the “Last updated” date on this page will be updated.</p>
+
+  <h2>6. Contact</h2>
+  <p>For questions about the App or this policy, please contact us at the address below.</p>
+  <div class="contact">
+    <p class="mail"><a href="mailto:dev.az.contact@gmail.com">dev.az.contact@gmail.com</a></p>
+  </div>
+
+  <p style="margin-top:32px"><a href="support.html" data-page="support.html">Support</a></p>
+</section>
+</main>
+<script>
+  // 言語タブ。?lang=ja / ?lang=en があればそれを、なければブラウザの言語で最初のタブを決める
+  // （ページの中だけで切りかえ、外部とは通信しない）
+  (() => {
+    const titles = { ja: 'プライバシーポリシー｜ねこ玉だんご', en: 'Privacy Policy | Nekotama Dango' };
+    const tabs = [...document.querySelectorAll('[role="tab"]')];
+    const show = (lang, focus) => {
+      for (const tab of tabs) {
+        const on = tab.dataset.lang === lang;
+        tab.setAttribute('aria-selected', String(on));
+        tab.tabIndex = on ? 0 : -1;
+        document.getElementById(tab.getAttribute('aria-controls')).hidden = !on;
+        if (on && focus) tab.focus();
+      }
+      document.documentElement.lang = lang;
+      document.title = titles[lang];
+      // ほかのページへのリンクにも いまの言語を引きつぐ
+      for (const a of document.querySelectorAll('a[data-page]')) a.href = `${a.dataset.page}?lang=${lang}`;
+      history.replaceState(null, '', `?lang=${lang}${location.hash}`);
+    };
+    const q = new URLSearchParams(location.search).get('lang');
+    const first = q in titles ? q : /^ja\b/i.test(navigator.language || '') ? 'ja' : 'en';
+    for (const tab of tabs) {
+      tab.addEventListener('click', () => show(tab.dataset.lang));
+      // ← → キーでも切りかえる
+      tab.addEventListener('keydown', (e) => {
+        const d = { ArrowLeft: -1, ArrowRight: 1 }[e.key];
+        if (!d) return;
+        const next = tabs[(tabs.indexOf(tab) + d + tabs.length) % tabs.length];
+        show(next.dataset.lang, true);
+      });
+    }
+    document.documentElement.classList.add('js');
+    document.querySelector('.tabs').hidden = false;
+    show(first);
+  })();
+</script>
+</body>
+</html>
